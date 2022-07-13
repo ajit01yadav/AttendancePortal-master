@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "MarkTime";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+
+        <div style="text-align: center;">
+            <img src="~/Images/logo.png" id="icon" alt="User Icon" />
+        </div>
+        <div id="formContent">
+            <h2 class="active"> Mark Your Timing </h2>
+            <form id="form1" runat="server" method="post" style="text-align: center;">
+
+                <div>
+                    <input type="submit" class="fadeIn fourth" value="Home Page">
+                </div>
+
+                <div class="errordev" id="divloader">
+                    <p class="errormg">@ViewBag.ErrorMessage</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    @if (ViewBag.ErrorMessage != "")
+    {
+        <script type="text/javascript">
+            $('#divloader').css('display', 'block');
+        </script>
+    }
+    else
+    {
+        <script type="text/javascript">
+            $('#divloader').css('display', 'none');
+        </script>
+    }
+</body>
+</html>
+
+

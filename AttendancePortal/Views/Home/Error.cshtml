@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <div class="errordev" id="divloader">
+        <p class="errormg">@ViewBag.ErrorMessage</p>
+    </div>
+    @if (ViewBag.ErrorMessage != "")
+    {
+        <script type="text/javascript">
+            $('#divloader').css('display', 'block');
+        </script>
+    }
+    else
+    {
+        <script type="text/javascript">
+            $('#divloader').css('display', 'none');
+        </script>
+    }
+</body>
+</html>
+

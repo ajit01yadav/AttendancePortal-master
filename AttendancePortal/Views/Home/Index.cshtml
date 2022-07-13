@@ -1,0 +1,46 @@
+﻿@*@model AttendancePortal.Models.Employee*@
+
+@{
+    ViewBag.Title = "Login Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+    <style></style>
+</head>
+<body>
+    @using (@Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div class="wrapper fadeInDown">
+
+            <div style="text-align: center;">
+                <img src="~/Images/logo.png" id="icon" alt="User Icon" />
+            </div>
+
+            <div id="formContent">
+                <h2 class="active"> Mark Your Timing </h2>
+                    <input type="text" id="UserName" class="fadeIn second" name="UserName" placeholder="User Name">
+                    <input type="submit" class="fadeIn fourth" value="Submit">
+
+                <div class="errordev" id="divloader">
+                    <p class="errormg">@ViewBag.ErrorMessage</p>
+                </div>
+            </div>
+        </div>
+    }
+    @if (ViewBag.ErrorMessage != "")
+    {
+        <script type="text/javascript">
+            $('#divloader').css('display', 'block');
+        </script>
+    }
+    else
+    {
+        <script type = "text/javascript" >
+            $('#divloader').css('display', 'none');
+        </script >
+    }
+</body>
+</html>
