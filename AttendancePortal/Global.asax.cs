@@ -17,5 +17,10 @@ namespace AttendancePortal
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+       // Clickjacking security
+        protected void Application_BeginRequest()
+        {
+            Response.AddHeader("X-Frame-Options", "DENY");
+        }
     }
 }

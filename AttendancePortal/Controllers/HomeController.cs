@@ -68,6 +68,9 @@ namespace AttendancePortal.Controllers
                     _authorized = new Authorized();
 
                     _userName = Request["UserName"].ToString();
+                    //Added by Ajit for Encrypt Username
+                    _userName = CommonClass.EncodeBase64(_userName.ToString());
+                    _userName = CommonClass.DecodeBase64(_userName.ToString());
 
                     if (!String.IsNullOrWhiteSpace(_userName))
                     {
@@ -123,6 +126,7 @@ namespace AttendancePortal.Controllers
                     else if (Code != null)
                     {
                         string UserName = Request.QueryString["state"];
+                      
 
                         string Id = Convert.ToString(UserName);
 
